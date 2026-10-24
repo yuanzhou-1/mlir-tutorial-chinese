@@ -17,7 +17,7 @@
 | 课 | 文章 | 主题 | 主要代码 / 实验 | 文档 | 状态 |
 |---|---|---|---|---|---|
 | 0 | 1 | Build System (Getting Started) | LLVM/MLIR 构建、`tutorial-opt` 骨架 | [00-environment.md](00-environment.md) | ✅ 完成 |
-| 1 | 2 | Running and Testing a Lowering | IR 基础、ctlz lowering、lit/FileCheck、`mlir-runner` | [01_Running_and_Testing_a_Lowering.md](01_Running_and_Testing_a_Lowering.md) | ✅ 完成 |
+| 1 | 2 | Running and Testing a Lowering | IR 基础、ctlz lowering、lit/FileCheck、`mlir-runner` | [01-ir-basics.md](01-ir-basics.md) | ✅ 完成 |
 | 2 | 3 | Writing Our First Pass | `AffineFullUnroll` 手动版与 RewritePattern 版 | [02-first-pass.md](02-first-pass.md) | ✅ 完成 |
 | 3 | 4 | Using TableGen for Passes | `Passes.td`、生成的 base class、pass 注册 | [03-tablegen-passes.md](03-tablegen-passes.md) | 🟡 进行中 |
 | 4 | 5 | Defining a New Dialect | Poly dialect / type / op、assemblyFormat | 04-new-dialect.md | |
