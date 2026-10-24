@@ -1,0 +1,17 @@
+# 编辑器 / 系统
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# 构建产物
+build/
+externals/
+*.o
+*.a
+
+# 临时文件
+scratch/
+*.mlir.tmp
