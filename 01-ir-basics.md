@@ -135,7 +135,7 @@ func.func @test_single_nested_loop(%buffer: memref<4xi32>) -> (i32) {
 先设置路径：
 
 ```bash
-cd /home/zhangyuanzhou/npu/mlir-tutorial
+cd /home/zhouzhou/npu/mlir-tutorial
 BIN=$PWD/externals/llvm-project/build/bin
 TO=$PWD/build/tools/tutorial-opt
 mkdir -p build/scratch          # 本课程所有临时文件都放在项目内
@@ -560,7 +560,7 @@ $BIN/mlir-opt tests/ctlz_simple.mlir --convert-math-to-funcs=convert-ctlz \
 - 本环境尚未安装 lit，所以课程目前手动执行 RUN 命令。安装方式：
 
 ```bash
-cd /home/zhangyuanzhou/npu/mlir-tutorial
+cd /home/zhouzhou/npu/mlir-tutorial
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 # 注意：仓库自带的 lit.cfg.py 依赖 Bazel 的 RUNFILES_DIR，
@@ -886,7 +886,7 @@ canonicalize 把返回值直接替换为常量。
 
 ## 下一课
 
-**第 2 课：Writing Our First Pass（文章 3）**
+**第 2 课：Writing Our First Pass（文章 3）**：[02-first-pass.md](02-first-pass.md)
 
 - 从零写一个 pass：`runOnOperation()` + `walk()`
 - 把同一变换封装成 `OpRewritePattern`

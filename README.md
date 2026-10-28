@@ -20,7 +20,7 @@
 | 1 | 2 | Running and Testing a Lowering | IR 基础、ctlz lowering、lit/FileCheck、`mlir-runner` | [01-ir-basics.md](01-ir-basics.md) | ✅ 完成 |
 | 2 | 3 | Writing Our First Pass | `AffineFullUnroll` 手动版与 RewritePattern 版 | [02-first-pass.md](02-first-pass.md) | ✅ 完成 |
 | 3 | 4 | Using TableGen for Passes | `Passes.td`、生成的 base class、pass 注册 | [03-tablegen-passes.md](03-tablegen-passes.md) | 🟡 进行中 |
-| 4 | 5 | Defining a New Dialect | Poly dialect / type / op、assemblyFormat | 04-new-dialect.md | |
+| 4 | 5 | Defining a New Dialect | Poly dialect / type / op、assemblyFormat | [04-new-dialect.md](04-new-dialect.md) | ✅ 完成 |
 | 5 | 6 | Using Traits | `Has32BitArguments`、`Pure`/`ElementwiseMappable`、LICM/sink | 05-traits.md | |
 | 6 | 7 | Folders and Constant Propagation | `fold()`、常量折叠、`ConstantLike` | 06-folders.md | |
 | 7 | 8 | Verifiers | `EvalOp::verify`、trait verifier、`poly_verifier.mlir` | 07-verifiers.md | |
@@ -128,7 +128,7 @@
 除非特别说明，所有命令都在仓库根目录执行：
 
 ```bash
-cd /home/zhangyuanzhou/npu/mlir-tutorial
+cd /home/zhouzhou/npu/mlir-tutorial
 
 export TOP=$PWD
 export BIN=$TOP/externals/llvm-project/build/bin   # mlir-opt、FileCheck、mlir-runner 等
