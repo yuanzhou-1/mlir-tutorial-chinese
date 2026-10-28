@@ -1,6 +1,6 @@
 # 第 1 课：IR 基础与运行/测试 Lowering
 
-> 对应文章 2：[Running and Testing a Lowering](https://jeremykun.com/2023/08/10/mlir-running-and-testing-a-lowering/)。
+> 对应文章：[Running and Testing a Lowering](https://jeremykun.com/2023/08/10/mlir-running-and-testing-a-lowering/)。
 >
 > 本课是一条完整的 MLIR 开发闭环，分为两个部分：
 >
@@ -9,7 +9,7 @@
 > 2. **改写并验证 IR**：运行 pass、观察 IR 变化、用 FileCheck 固定行为、
 >    用 `mlir-runner` 做功能测试（实验 3–4，第 7 节）
 >
-> 文章 2 以 `math.ctlz` lowering 为例展示第 2 部分；本课把读 IR 的基础和这套
+> 原文章以 `math.ctlz` lowering 为例展示第 2 部分；本课把读 IR 的基础和这套
 > 测试流程放在一起，学完即可独立完成“写 IR → 跑 pass → 验证结果”的全过程。
 >
 > 完成标志：能读懂 generic 形式的 IR，能运行并验证一个 lowering，能解释 pass
@@ -886,7 +886,7 @@ canonicalize 把返回值直接替换为常量。
 
 ## 下一课
 
-**第 2 课：Writing Our First Pass（文章 3）**：[02-first-pass.md](02-first-pass.md)
+**第 2 课：Writing Our First Pass**：[02-first-pass.md](02-first-pass.md)
 
 - 从零写一个 pass：`runOnOperation()` + `walk()`
 - 把同一变换封装成 `OpRewritePattern`

@@ -1,6 +1,6 @@
 # 第 4 课：Defining a New Dialect
 
-> 对应文章 5：[Defining a New Dialect](https://jeremykun.com/2023/08/21/mlir-defining-a-new-dialect/)。
+> 对应文章：[Defining a New Dialect](https://jeremykun.com/2023/08/21/mlir-defining-a-new-dialect/)。
 >
 > 本课从零理解 MLIR 的 Dialect、Type、Op 三层定义：如何用 ODS/TableGen 描述
 > `!poly.poly<N>` 类型和 `poly.add/sub/mul/...` 操作，以及这些声明如何变成
@@ -146,7 +146,7 @@ let assemblyFormat = "`<` $degreeBound `>`";
 因为 dialect 设置了 `useDefaultTypePrinterParser = 1`，MLIR 会自动生成
 类型的 parser/printer，不需要手写 `parseType` / `printType`。
 
-> 文章 5 展示了没有该选项时手写 parse/print 的版本；当前仓库使用自动生成，
+> 原文章展示了没有该选项时手写 parse/print 的版本；当前仓库使用自动生成，
 > 更简洁，也是更常见的做法。
 
 #### degreeBound 与模 x^N = 1
@@ -249,7 +249,7 @@ error: expected '<'
 
 ### 5.1 一个最简 op
 
-文章 5 的第一版：
+原文章的第一版：
 
 ```tablegen
 def Poly_AddOp : Op<Poly_Dialect, "add"> {
@@ -518,13 +518,13 @@ add_mlir_dialect_library(MLIRPoly
   `PolyDialect.cpp` include 的，不是 `PolyOps.cpp`
 - `PolyOps.cpp` 只包含**手写行为**：fold、verifier、canonicalization pattern 注册
 
-按文章顺序，这些手写文件的“写作时间”是：
+按系列文章的写作顺序，这些手写文件的“写作时间”是：
 
-1. 文章 5：创建 `.td`、`.h`、最小 `.cpp` 骨架
-2. 文章 6：增加 `PolyTraits.h` 和 trait 声明
-3. 文章 7：在 `PolyOps.cpp` 写 `fold`
-4. 文章 8：在 `PolyOps.cpp` 写 `verify`
-5. 文章 9：增加 `PolyPatterns.td`，在 `PolyOps.cpp` 注册 canonicalization patterns
+1. 本课（第 4 课）：创建 `.td`、`.h`、最小 `.cpp` 骨架
+2. 第 5 课：增加 `PolyTraits.h` 和 trait 声明
+3. 第 6 课：在 `PolyOps.cpp` 写 `fold`
+4. 第 7 课：在 `PolyOps.cpp` 写 `verify`
+5. 第 8 课：增加 `PolyPatterns.td`，在 `PolyOps.cpp` 注册 canonicalization patterns
 
 当前仓库是系列完成后的最终状态，所以这些方法都已经存在。
 
@@ -1051,7 +1051,7 @@ def Poly_NegOp : Op<Poly_Dialect, "neg", [Pure, SameOperandsAndResultType]> {
 <summary>练习 3</summary>
 
 它会根据 Type 的 assemblyFormat 自动生成 dialect 的 `parseType()` 和
-`printType()`。去掉后需要手写这两个函数（文章 5 的早期版本就是这样），
+`printType()`。去掉后需要手写这两个函数（原文章的早期版本就是这样），
 或者为每个类型手动实现解析/打印逻辑。
 
 </details>

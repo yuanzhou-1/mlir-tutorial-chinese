@@ -1,7 +1,7 @@
 一句话总结
 # 第 0 课：环境搭建——从零构建 LLVM/MLIR 与 tutorial-opt
 
-> 对应文章 1：[Build System (Getting Started)](https://jeremykun.com/2023/08/10/mlir-getting-started/)。
+> 对应文章：[Build System (Getting Started)](https://jeremykun.com/2023/08/10/mlir-getting-started/)。
 > 文章使用 Bazel 讲解项目组织和构建；本环境没有 Bazel，改用仓库同样维护的 CMake
 > 构建，产物和 pass 行为一致。
 >

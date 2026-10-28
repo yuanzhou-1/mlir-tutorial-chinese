@@ -1,6 +1,6 @@
 # 第 3 课：Using TableGen for Passes
 
-> 对应文章 4：[Using TableGen for Passes](https://jeremykun.com/2023/08/10/mlir-using-tablegen-for-passes/)。
+> 对应文章：[Using TableGen for Passes](https://jeremykun.com/2023/08/10/mlir-using-tablegen-for-passes/)。
 >
 > 本课解释 `Passes.td` 到底做了什么：它不是运行时逻辑，而是**构建期的代码生成器**。
 > 我们会看清 `mlir-tblgen` 生成的三部分代码、宏协议、注册流程，以及 CMake/Bazel
@@ -91,7 +91,7 @@ def SomeFuncPass : Pass<"some-func-pass", "func::FuncOp"> { ... }
 ```
 
 本仓库的两个 unroll pass 都是通用形式，在 module 层级运行，然后自己 `walk` 到
-`affine.for`。文章 3 的旧代码锚定在 `func::FuncOp` 上，这是另一种合理设计。
+`affine.for`。原文章的旧代码锚定在 `func::FuncOp` 上，这是另一种合理设计。
 
 ## 4. 生成物：`Passes.h.inc`
 
@@ -683,7 +683,7 @@ error: invalid use of incomplete type ‘class mlir::func::FuncOp’
 
 ## 下一课
 
-**第 4 课：Defining a New Dialect（文章 5）**：[04-new-dialect.md](04-new-dialect.md)
+**第 4 课：Defining a New Dialect**：[04-new-dialect.md](04-new-dialect.md)
 
 - ODS 定义 Dialect、Type、Op
 - `assemblyFormat` 与类型打印/解析

@@ -1,6 +1,6 @@
 # 第 2 课：Writing Our First Pass
 
-> 对应文章 3：[Writing Our First Pass](https://jeremykun.com/2023/08/10/mlir-writing-our-first-pass/)。
+> 对应文章：[Writing Our First Pass](https://jeremykun.com/2023/08/10/mlir-writing-our-first-pass/)。
 >
 > 本课从零理解一个 MLIR pass 的组成，并对比两种实现方式：
 > **手动遍历 IR** 与 **Pattern Rewrite**。最后用一个更完整的例子
@@ -57,7 +57,7 @@ $TO input.mlir --affine-full-unroll
 
 ## 3. 项目组织
 
-与文章 3 对应，pass 相关的文件分布如下：
+与原文章对应，pass 相关的文件分布如下：
 
 ```text
 lib/Transform/Affine/
@@ -776,7 +776,7 @@ benefit 决定重写优先级。
 
 ## 下一课
 
-**第 3 课：Using TableGen for Passes（文章 4）**：[03-tablegen-passes.md](03-tablegen-passes.md)
+**第 3 课：Using TableGen for Passes**：[03-tablegen-passes.md](03-tablegen-passes.md)
 
 - `Passes.td` 的完整语法
 - `-gen-pass-decls` 生成了什么
