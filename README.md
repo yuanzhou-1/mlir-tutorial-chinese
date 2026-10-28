@@ -11,19 +11,19 @@
 
 | 课 | 主题 | 主要代码 / 实验 | 文档 | 状态 |
 |---|---|---|---|---|
-| 0 | Build System (Getting Started) | LLVM/MLIR 构建、`tutorial-opt` 骨架 | [00-environment.md](00-environment.md) | ✅ 完成 |
-| 1 | Running and Testing a Lowering | IR 基础、ctlz lowering、lit/FileCheck、`mlir-runner` | [01-ir-basics.md](01-ir-basics.md) | ✅ 完成 |
-| 2 | Writing Our First Pass | `AffineFullUnroll` 手动版与 RewritePattern 版 | [02-first-pass.md](02-first-pass.md) | ✅ 完成 |
-| 3 | Using TableGen for Passes | `Passes.td`、生成的 base class、pass 注册 | [03-tablegen-passes.md](03-tablegen-passes.md) | ✅ 完成 |
-| 4 | Defining a New Dialect | Poly dialect / type / op、assemblyFormat | [04-new-dialect.md](04-new-dialect.md) | ✅ 完成 |
-| 5 | Using Traits | `Has32BitArguments`、`Pure`/`ElementwiseMappable`、LICM/sink | 05-traits.md | |
-| 6 | Folders and Constant Propagation | `fold()`、常量折叠、`ConstantLike` | 06-folders.md | |
-| 7 | Verifiers | `EvalOp::verify`、trait verifier、`poly_verifier.mlir` | 07-verifiers.md | |
-| 8 | Canonicalizers and Declarative Rewrite Patterns | `PolyPatterns.td`、`DifferenceOfSquares` | 08-canonicalizers.md | |
-| 9 | Dialect Conversion | TypeConverter、`PolyToStandard` | 09-dialect-conversion.md | |
-| 10 | Lowering through LLVM | `--poly-to-llvm` pipeline、端到端执行 | 10-lowering-through-llvm.md | |
-| 11 | A Global Optimization and Dataflow Analysis | Noisy dialect、IntegerRangeAnalysis、ILP | 11-global-optimization-dataflow.md | |
-| 12 | Defining Patterns with PDLL | `MulToAdd.pdll`、PDLL pass | 12-pdll.md | |
+| 0 | [Build System (Getting Started)](https://jeremykun.com/2023/08/10/mlir-getting-started/) | LLVM/MLIR 构建、`tutorial-opt` 骨架 | [00-environment.md](00-environment.md) | ✅ 完成 |
+| 1 | [Running and Testing a Lowering](https://jeremykun.com/2023/08/10/mlir-running-and-testing-a-lowering/) | IR 基础、ctlz lowering、lit/FileCheck、`mlir-runner` | [01-ir-basics.md](01-ir-basics.md) | ✅ 完成 |
+| 2 | [Writing Our First Pass](https://jeremykun.com/2023/08/10/mlir-writing-our-first-pass/) | `AffineFullUnroll` 手动版与 RewritePattern 版 | [02-first-pass.md](02-first-pass.md) | ✅ 完成 |
+| 3 | [Using TableGen for Passes](https://jeremykun.com/2023/08/10/mlir-using-tablegen-for-passes/) | `Passes.td`、生成的 base class、pass 注册 | [03-tablegen-passes.md](03-tablegen-passes.md) | ✅ 完成 |
+| 4 | [Defining a New Dialect](https://jeremykun.com/2023/08/21/mlir-defining-a-new-dialect/) | Poly dialect / type / op、assemblyFormat | [04-new-dialect.md](04-new-dialect.md) | ✅ 完成 |
+| 5 | [Using Traits](https://jeremykun.com/2023/09/07/mlir-using-traits/) | `Has32BitArguments`、`Pure`/`ElementwiseMappable`、LICM/sink | 05-traits.md | |
+| 6 | [Folders and Constant Propagation](https://jeremykun.com/2023/09/11/mlir-folders/) | `fold()`、常量折叠、`ConstantLike` | 06-folders.md | |
+| 7 | [Verifiers](https://jeremykun.com/2023/09/13/mlir-verifiers/) | `EvalOp::verify`、trait verifier、`poly_verifier.mlir` | 07-verifiers.md | |
+| 8 | [Canonicalizers and Declarative Rewrite Patterns](https://jeremykun.com/2023/09/20/mlir-canonicalizers-and-declarative-rewrite-patterns/) | `PolyPatterns.td`、`DifferenceOfSquares` | 08-canonicalizers.md | |
+| 9 | [Dialect Conversion](https://jeremykun.com/2023/10/23/mlir-dialect-conversion/) | TypeConverter、`PolyToStandard` | 09-dialect-conversion.md | |
+| 10 | [Lowering through LLVM](https://jeremykun.com/2023/11/01/mlir-lowering-through-llvm/) | `--poly-to-llvm` pipeline、端到端执行 | 10-lowering-through-llvm.md | |
+| 11 | [A Global Optimization and Dataflow Analysis](https://jeremykun.com/2023/11/15/mlir-a-global-optimization-and-dataflow-analysis/) | Noisy dialect、IntegerRangeAnalysis、ILP | 11-global-optimization-dataflow.md | |
+| 12 | [Defining Patterns with PDLL](https://www.jeremykun.com/2024/08/04/mlir-pdll/) | `MulToAdd.pdll`、PDLL pass | 12-pdll.md | |
 
 ## 每课内容预告
 
