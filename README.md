@@ -16,7 +16,7 @@
 | 2 | [Writing Our First Pass](https://jeremykun.com/2023/08/10/mlir-writing-our-first-pass/) | `AffineFullUnroll` 手动版与 RewritePattern 版 | [02-first-pass.md](02-first-pass.md) | ✅ 完成 |
 | 3 | [Using TableGen for Passes](https://jeremykun.com/2023/08/10/mlir-using-tablegen-for-passes/) | `Passes.td`、生成的 base class、pass 注册 | [03-tablegen-passes.md](03-tablegen-passes.md) | ✅ 完成 |
 | 4 | [Defining a New Dialect](https://jeremykun.com/2023/08/21/mlir-defining-a-new-dialect/) | Poly dialect / type / op、assemblyFormat | [04-new-dialect.md](04-new-dialect.md) | ✅ 完成 |
-| 5 | [Using Traits](https://jeremykun.com/2023/09/07/mlir-using-traits/) | `Has32BitArguments`、`Pure`/`ElementwiseMappable`、LICM/sink | 05-traits.md | |
+| 5 | [Using Traits](https://jeremykun.com/2023/09/07/mlir-using-traits/) | `Has32BitArguments`、`Pure`/`ElementwiseMappable`、LICM/sink | [05-traits.md](05-traits.md) | ✅ 完成 |
 | 6 | [Folders and Constant Propagation](https://jeremykun.com/2023/09/11/mlir-folders/) | `fold()`、常量折叠、`ConstantLike` | 06-folders.md | |
 | 7 | [Verifiers](https://jeremykun.com/2023/09/13/mlir-verifiers/) | `EvalOp::verify`、trait verifier、`poly_verifier.mlir` | 07-verifiers.md | |
 | 8 | [Canonicalizers and Declarative Rewrite Patterns](https://jeremykun.com/2023/09/20/mlir-canonicalizers-and-declarative-rewrite-patterns/) | `PolyPatterns.td`、`DifferenceOfSquares` | 08-canonicalizers.md | |

@@ -1087,7 +1087,7 @@ def Poly_NegOp : Op<Poly_Dialect, "neg", [Pure, SameOperandsAndResultType]> {
 
 ## 下一课
 
-**第 5 课：Using Traits**（文档待编写）
+**第 5 课：Using Traits**：[05-traits.md](05-traits.md)
 
 - `Pure`、`ElementwiseMappable`、`SameOperandsAndResultType`
 - 自定义 trait `Has32BitArguments` 与 `verifyTrait`
