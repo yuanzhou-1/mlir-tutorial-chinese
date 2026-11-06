@@ -541,6 +541,109 @@ cmake -S . -B build
 - `lib/Dialect/Box/BUILD`：`td_library` + 三个 `gentbl_cc_library` + `cc_library`
 - `tools/BUILD`：依赖 `//lib/Dialect/Box`
 
+`lib/Dialect/Box/BUILD` 的完整内容：
+
+```python
+load("@llvm-project//mlir:tblgen.bzl", "gentbl_cc_library", "td_library")
+
+package(
+    default_visibility = ["//visibility:public"],
+)
+
+td_library(
+    name = "td_files",
+    srcs = [
+        "BoxDialect.td",
+        "BoxOps.td",
+        "BoxTypes.td",
+    ],
+    deps = [
+        "@llvm-project//mlir:BuiltinDialectTdFiles",
+        "@llvm-project//mlir:OpBaseTdFiles",
+        "@llvm-project//mlir:SideEffectInterfacesTdFiles",
+    ],
+)
+
+gentbl_cc_library(
+    name = "dialect_inc_gen",
+    tbl_outs = [
+        (
+            ["-gen-dialect-decls"],
+            "BoxDialect.h.inc",
+        ),
+        (
+            ["-gen-dialect-defs"],
+            "BoxDialect.cpp.inc",
+        ),
+    ],
+    tblgen = "@llvm-project//mlir:mlir-tblgen",
+    td_file = "BoxDialect.td",
+    deps = [":td_files"],
+)
+
+gentbl_cc_library(
+    name = "types_inc_gen",
+    tbl_outs = [
+        (
+            ["-gen-typedef-decls"],
+            "BoxTypes.h.inc",
+        ),
+        (
+            ["-gen-typedef-defs"],
+            "BoxTypes.cpp.inc",
+        ),
+    ],
+    tblgen = "@llvm-project//mlir:mlir-tblgen",
+    td_file = "BoxTypes.td",
+    deps = [
+        ":dialect_inc_gen",
+        ":td_files",
+    ],
+)
+
+gentbl_cc_library(
+    name = "ops_inc_gen",
+    tbl_outs = [
+        (
+            ["-gen-op-decls"],
+            "BoxOps.h.inc",
+        ),
+        (
+            ["-gen-op-defs"],
+            "BoxOps.cpp.inc",
+        ),
+    ],
+    tblgen = "@llvm-project//mlir:mlir-tblgen",
+    td_file = "BoxOps.td",
+    deps = [
+        ":dialect_inc_gen",
+        ":td_files",
+        ":types_inc_gen",
+    ],
+)
+
+cc_library(
+    name = "Box",
+    srcs = [
+        "BoxDialect.cpp",
+        "BoxOps.cpp",
+    ],
+    hdrs = [
+        "BoxDialect.h",
+        "BoxOps.h",
+        "BoxTypes.h",
+    ],
+    deps = [
+        ":dialect_inc_gen",
+        ":ops_inc_gen",
+        ":types_inc_gen",
+        "@llvm-project//mlir:Dialect",
+        "@llvm-project//mlir:IR",
+        "@llvm-project//mlir:Support",
+    ],
+)
+```
+
 本环境没有安装 Bazel，Bazel 路径未实际验证；CMake 路径已验证。
 
 ## 9. 注册到 tutorial-opt
@@ -722,7 +825,7 @@ $TO tests/box_verifier.mlir -verify-diagnostics
 三条命令都无输出、退出码为 0，即全部通过。
 
 这些 `.mlir` 文件放在 `tests/` 下，lit 会自动收集（`glob_lit_tests()` /
-`add_lit_testsuite`）；本课程用上面的手动命令执行。
+`add_lit_testsuite`；本环境 lit 未安装，用上面的手动命令执行）。
 
 ## 13. 查看生成代码与宏展开
 

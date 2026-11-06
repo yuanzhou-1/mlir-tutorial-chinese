@@ -905,7 +905,54 @@ error: use of value '%p' expects different type than prior uses:
 
 真正把 tensor 级 op 拆成标量/循环，是后续 lowering 的工作。
 
-### 实验 7：从零创建一个迷你 dialect（box）
+### 实验 7：综合示例 `tests/poly_demo.mlir`
+
+`tests/poly_demo.mlir` 把 `poly.constant`、`add`、`mul`、`neg`、`eval` 放在
+一起，用来验证语法和类型：
+
+```mlir
+// RUN: tutorial-opt %s | FileCheck %s
+
+// CHECK-LABEL: func.func @demo
+// CHECK: poly.constant
+// CHECK: poly.add
+// CHECK: poly.mul
+// CHECK: poly.neg
+// CHECK: poly.eval
+// CHECK: return
+func.func @demo(%a : !poly.poly<5>, %b : !poly.poly<5>) -> !poly.poly<5> {
+  %c = poly.constant dense<[1, 2, 3]> : tensor<3xi32> : !poly.poly<5>
+  %s = poly.add %a, %b : !poly.poly<5>
+  %m = poly.mul %s, %c : !poly.poly<5>
+  %n = poly.neg %m : !poly.poly<5>
+  %x = arith.constant 2 : i32
+  %y = poly.eval %s, %x : (!poly.poly<5>, i32) -> i32
+  return %n : !poly.poly<5>
+}
+```
+
+运行：
+
+```bash
+$TO tests/poly_demo.mlir
+```
+
+输出（节选）：
+
+```mlir
+%0 = poly.constant dense<[1, 2, 3]> : tensor<3xi32> : !poly.poly<5>
+%1 = poly.add %arg0, %arg1 : !poly.poly<5>
+%2 = poly.mul %1, %0 : !poly.poly<5>
+%3 = poly.neg %2 : !poly.poly<5>
+%c2_i32 = arith.constant 2 : i32
+%4 = poly.eval %1, %c2_i32 : (!poly.poly<5>, i32) -> i32
+return %3 : !poly.poly<5>
+```
+
+`%y` 没有被使用，但 `poly.eval` 仍会经过 verifier；它的 point 是 `i32`。
+`poly.neg` 目前只有语法和类型定义，还没有 fold/lowering，这是正常的。
+
+### 实验 8：从零创建一个迷你 dialect（box）
 
 作为本课的实战，仓库里新增了一个 `box` dialect。**完整的、可照着敲的分步教程
 见 [mini-dialect-box.md](mini-dialect-box.md)**；下面是速览。

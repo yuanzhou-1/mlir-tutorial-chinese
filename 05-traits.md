@@ -462,7 +462,7 @@ tensor + scalar 被拒绝。
 
 ## 下一课
 
-**第 6 课：Folders and Constant Propagation**
+**第 6 课：Folders and Constant Propagation**：[06-folders.md](06-folders.md)
 
 - `hasFolder = 1` 与 `Op::fold`
 - `OpFoldResult` 的三种返回值
