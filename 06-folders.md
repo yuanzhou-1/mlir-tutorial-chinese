@@ -1201,7 +1201,7 @@ canonicalization pattern 里。
 
 ## 11. 下一课
 
-**第 7 课：Verifiers**
+**第 7 课：Verifiers**：[07-verifiers.md](07-verifiers.md)
 
 - op 级 `verify()`
 - trait 级 `verifyTrait()`
@@ -1217,6 +1217,7 @@ canonicalization pattern 里。
 - MLIR 官方文档：Operation Folding
   <https://mlir.llvm.org/docs/Canonicalization/#canonicalization>
 - 补充：[MLIR 属性类型速查](attributes.md)
+- 补充：[FileCheck 使用指南](filecheck.md)
 - 本课测试：`tests/poly_fold.mlir`
 - 相关源码：
   - `lib/Dialect/Poly/PolyOps.td`

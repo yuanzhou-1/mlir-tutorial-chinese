@@ -525,6 +525,8 @@ module {
 
 ### 7.2 FileCheck：给 lowering 写断言
 
+> FileCheck 的完整语法见 [FileCheck 使用指南](filecheck.md)。
+
 `// RUN:` 是给 lit 的指令，不是 MLIR 语法：
 
 ```text
