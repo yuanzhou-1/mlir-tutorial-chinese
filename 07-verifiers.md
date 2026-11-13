@@ -649,7 +649,7 @@ return isSignlessInteger || isComplexF64
 
 ## 11. 下一课
 
-**第 8 课：Canonicalizers and Declarative Rewrite Patterns**
+**第 8 课：Canonicalizers and Declarative Rewrite Patterns**：[08-canonicalizers.md](08-canonicalizers.md)
 
 - `getCanonicalizationPatterns`
 - TableGen 声明式 pattern：`PolyPatterns.td`

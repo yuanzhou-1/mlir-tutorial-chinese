@@ -1,7 +1,7 @@
 # Pat 与 Pattern 语法
 
 > 本文单独讲 MLIR TableGen DRR 里的 `Pat` 和 `Pattern` 语法。
-> 配合第 8 课 Canonicalizers and Declarative Rewrite Patterns 阅读。
+> 配合第 8 课 [Canonicalizers and Declarative Rewrite Patterns](08-canonicalizers.md) 阅读。
 >
 > 目标：看到 `PolyPatterns.td` 时，能逐段说出它在匹配什么、创建什么、
 > 约束是什么，以及为什么用 `Pat` 而不是 `Pattern`。
@@ -693,7 +693,7 @@ def MyPattern : Pattern<
 
 - MLIR 官方文档：Declarative Rewrite Rules
   <https://mlir.llvm.org/docs/DeclarativeRewrites/>
-- 第 8 课：Canonicalizers and Declarative Rewrite Patterns（文档待编写）
+- 第 8 课：[Canonicalizers and Declarative Rewrite Patterns](08-canonicalizers.md)
 - 本仓库示例：
   - `lib/Dialect/Poly/PolyPatterns.td`
   - `build/lib/Dialect/Poly/PolyCanonicalize.cpp.inc`
