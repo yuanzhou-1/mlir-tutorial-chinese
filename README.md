@@ -20,7 +20,7 @@
 | 6 | [Folders and Constant Propagation](https://jeremykun.com/2023/09/11/mlir-folders/) | `fold()`、常量折叠、`ConstantLike` | [06-folders.md](06-folders.md) | ✅ 完成 |
 | 7 | [Verifiers](https://jeremykun.com/2023/09/13/mlir-verifiers/) | `EvalOp::verify`、trait verifier、`poly_verifier.mlir` | [07-verifiers.md](07-verifiers.md) | ✅ 完成 |
 | 8 | [Canonicalizers and Declarative Rewrite Patterns](https://jeremykun.com/2023/09/20/mlir-canonicalizers-and-declarative-rewrite-patterns/) | `PolyPatterns.td`、`DifferenceOfSquares` | [08-canonicalizers.md](08-canonicalizers.md) | ✅ 完成 |
-| 9 | [Dialect Conversion](https://jeremykun.com/2023/10/23/mlir-dialect-conversion/) | TypeConverter、`PolyToStandard` | 09-dialect-conversion.md | |
+| 9 | [Dialect Conversion](https://jeremykun.com/2023/10/23/mlir-dialect-conversion/) | TypeConverter、`PolyToStandard` | [09-dialect-conversion.md](09-dialect-conversion.md) | ✅ 完成 |
 | 10 | [Lowering through LLVM](https://jeremykun.com/2023/11/01/mlir-lowering-through-llvm/) | `--poly-to-llvm` pipeline、端到端执行 | 10-lowering-through-llvm.md | |
 | 11 | [A Global Optimization and Dataflow Analysis](https://jeremykun.com/2023/11/15/mlir-a-global-optimization-and-dataflow-analysis/) | Noisy dialect、IntegerRangeAnalysis、ILP | 11-global-optimization-dataflow.md | |
 | 12 | [Defining Patterns with PDLL](https://www.jeremykun.com/2024/08/04/mlir-pdll/) | `MulToAdd.pdll`、PDLL pass | 12-pdll.md | |

@@ -869,7 +869,7 @@ func.func @double_neg(%arg0: !poly.poly<10>) -> !poly.poly<10> {
 
 ## 13. 下一课
 
-**第 9 课：Dialect Conversion**
+**第 9 课：Dialect Conversion**：[09-dialect-conversion.md](09-dialect-conversion.md)
 
 - `TypeConverter`：`!poly.poly<N>` → `tensor<Nxi32>`
 - `OpConversionPattern`
