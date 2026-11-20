@@ -1,8 +1,7 @@
-一句话总结
 # 第 0 课：环境搭建——从零构建 LLVM/MLIR 与 tutorial-opt
 
 > 对应文章：[Build System (Getting Started)](https://jeremykun.com/2023/08/10/mlir-getting-started/)。
-> 文章使用 Bazel 讲解项目组织和构建；本环境没有 Bazel，改用仓库同样维护的 CMake
+> 文章使用 Bazel 讲解项目组织和构建；本课主线使用仓库同样维护的 CMake
 > 构建，产物和 pass 行为一致。
 >
 > 本课完整讲解从零搭建学习环境的全过程：探测环境、拉取源码、构建 LLVM/MLIR、
@@ -42,13 +41,19 @@
 | clang | ❌ 未安装 |
 | LLVM 子模块 | ❌ 初始为空 |
 
+> **环境更新（2026-11-20）**：Bazelisk 与 lit 现已安装。Bazel 由 `.bazelversion`
+> 固定为 8.3.1（Bazelisk 自动选择），Bazel 路线见 [bazel.md](bazel.md)；lit 用
+> LLVM 构建树的 `llvm-lit` 运行，见 [lit.md](lit.md)。下表保留当时（2026-10-19）
+> 的探测记录，正文中的“当时/最初”均指该时间点。
+
 ### 为什么选择 CMake 而不是 Bazel？
 
 教程文章主线使用 Bazel（Bzlmod），但仓库同时维护等价的 CMake 构建，**产出的
 `tutorial-opt` 和所有 pass 行为完全一致**，学习 MLIR 本身没有区别。
 
-当前环境没有 Bazel，而 CMake/Ninja/GCC 已齐全，因此选择 CMake，避免额外安装。
-如果你想跟文章里的 Bazel 命令一一对应，可以后续安装 Bazelisk 再走 Bazel 路线。
+本课写作时环境没有 Bazel，而 CMake/Ninja/GCC 已齐全，因此主线选择 CMake。
+后来环境补装了 Bazelisk，文章的 Bazel 路线整理成了 [bazel.md](bazel.md)，
+两条路线可以对照使用。
 
 ## 3. 第一步：拉取 pinned LLVM 子模块
 
@@ -212,9 +217,11 @@ $BIN/llc               # LLVM 后端编译器
    `LLVM_ENABLE_PROJECTS=mlir` 没有包含 clang。解决：先不构建 clang；第 4 课做
    端到端执行时需要 clang，届时重新配置
    `-DLLVM_ENABLE_PROJECTS='clang;mlir'` 后构建，或使用系统/apt 的 clang。
-3. **lit 未安装**：`tests/` 使用 lit，但当前 Python 环境没有 `lit` 模块
-   （`requirements.txt` 里是 `lit==18.1.8`）。目前我们直接运行各测试文件顶部的
-   `RUN:` 命令；如果要跑 `ninja check-mlir-tutorial`，需要先安装 lit，例如：
+3. **lit（已解决）**：`tests/` 使用 lit，最初 Python 环境没有 `lit` 模块
+   （`requirements.txt` 里是 `lit==18.1.8`），当时直接运行各测试文件顶部的
+   `RUN:` 命令。现在 LLVM 构建树提供了 `llvm-lit`（`$BIN/llvm-lit`），
+   `ninja check-mlir-tutorial` 可以直接运行，详见 [lit 测试指南](lit.md)；
+   如需单独安装 lit 的 Python 依赖：
    ```bash
    python3 -m venv .venv
    .venv/bin/pip install -r requirements.txt

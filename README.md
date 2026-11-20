@@ -21,9 +21,9 @@
 | 7 | [Verifiers](https://jeremykun.com/2023/09/13/mlir-verifiers/) | `EvalOp::verify`、trait verifier、`poly_verifier.mlir` | [07-verifiers.md](07-verifiers.md) | ✅ 完成 |
 | 8 | [Canonicalizers and Declarative Rewrite Patterns](https://jeremykun.com/2023/09/20/mlir-canonicalizers-and-declarative-rewrite-patterns/) | `PolyPatterns.td`、`DifferenceOfSquares` | [08-canonicalizers.md](08-canonicalizers.md) | ✅ 完成 |
 | 9 | [Dialect Conversion](https://jeremykun.com/2023/10/23/mlir-dialect-conversion/) | TypeConverter、`PolyToStandard` | [09-dialect-conversion.md](09-dialect-conversion.md) | ✅ 完成 |
-| 10 | [Lowering through LLVM](https://jeremykun.com/2023/11/01/mlir-lowering-through-llvm/) | `--poly-to-llvm` pipeline、端到端执行 | 10-lowering-through-llvm.md | |
-| 11 | [A Global Optimization and Dataflow Analysis](https://jeremykun.com/2023/11/15/mlir-a-global-optimization-and-dataflow-analysis/) | Noisy dialect、IntegerRangeAnalysis、ILP | 11-global-optimization-dataflow.md | |
-| 12 | [Defining Patterns with PDLL](https://www.jeremykun.com/2024/08/04/mlir-pdll/) | `MulToAdd.pdll`、PDLL pass | 12-pdll.md | |
+| 10 | [Lowering through LLVM](https://jeremykun.com/2023/11/01/mlir-lowering-through-llvm/) | `--poly-to-llvm` pipeline、端到端执行 | [10-lowering-through-llvm.md](10-lowering-through-llvm.md) | ✅ 完成 |
+| 11 | [A Global Optimization and Dataflow Analysis](https://jeremykun.com/2023/11/15/mlir-a-global-optimization-and-dataflow-analysis/) | Noisy dialect、IntegerRangeAnalysis、ILP | [11-global-optimization-dataflow.md](11-global-optimization-dataflow.md) | ✅ 完成 |
+| 12 | [Defining Patterns with PDLL](https://www.jeremykun.com/2024/08/04/mlir-pdll/) | `MulToAdd.pdll`、PDLL pass | [12-pdll.md](12-pdll.md) | ✅ 完成 |
 
 ## 每课内容预告
 
@@ -106,7 +106,7 @@
 - PDLL pass 的构建与注册
 - 测试：`tests/mul_to_add_pdll.mlir`
 
-## 命测试文件说明
+## 测试文件说明
 
 `tests/` 下有一部分测试用的是** MLIR 自带 pass**，不是本仓库实现的：
 
@@ -152,14 +152,30 @@ $TO <输入文件> --<pass 名>
 3. 做练习；卡住时回看源码，而不是直接看答案
 4. 学完一课，更新总表状态，再进入下一课
 
+## 补充文档
+
+主线课程之外，还有几篇围绕具体主题的速查和指南：
+
+| 文档 | 内容 |
+|---|---|
+| [FileCheck 使用指南](filecheck.md) | CHECK 断言、变量捕获、自定义前缀 |
+| [lit 测试指南](lit.md) | lit/ShTest、CMake 与 Bazel 两条测试路线 |
+| [Bazel 使用指南](bazel.md) | MODULE/BUILD、`bazel build/test`、与 CMake 对照 |
+| [Pat 与 Pattern 语法](patterns.md) | DRR/Pat 语法速查 |
+| [MLIR 属性类型速查](attributes.md) | ElementsAttr、DenseElementsAttr 与 ODS 约束 |
+| [类型边界辅助函数](conversion-helpers.md) | Dialect Conversion 的类型转换辅助 |
+| [assemblyFormat 指南](assembly-format.md) | 阅读和编写 op 的汇编格式 |
+| [迷你 Dialect 实战](mini-dialect-box.md) | 从零创建 box dialect |
+
 ## 环境说明
 
-本环境没有 Bazel，课程使用仓库维护的 **CMake** 构建；原文章讲的是 Bazel，
-两者产物和 pass 行为一致，差异及构建步骤见
-[第 0 课文档](00-environment.md)。
+课程主线使用仓库维护的 **CMake** 构建；原文章讲的是 Bazel，两者产物和
+pass 行为一致。CMake 构建步骤见 [第 0 课文档](00-environment.md)，
+Bazel 路线见 [Bazel 使用指南](bazel.md)。
 
 - LLVM/MLIR：pinned commit `d9190f8`（LLVM 22.0.0git），构建于
   `externals/llvm-project/build`
 - `tutorial-opt`：`build/tools/tutorial-opt`（Debug，含 or-tools v9.11）
-- `lit` 尚未安装；测试目前通过手动执行各文件的 `RUN:` 命令完成，
-  安装方法见第 1 课文档
+- `lit`：已安装，`ninja check-mlir-tutorial` / `$BIN/llvm-lit` 可直接运行，
+  见 [lit 测试指南](lit.md)
+- Bazel：Bazelisk 已安装（`.bazelversion` 固定 8.3.1），见 [bazel.md](bazel.md)

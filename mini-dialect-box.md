@@ -825,7 +825,7 @@ $TO tests/box_verifier.mlir -verify-diagnostics
 三条命令都无输出、退出码为 0，即全部通过。
 
 这些 `.mlir` 文件放在 `tests/` 下，lit 会自动收集（`glob_lit_tests()` /
-`add_lit_testsuite`；本环境 lit 未安装，用上面的手动命令执行）。
+`add_lit_testsuite`；也可以用上面的手动命令执行，见 [lit 测试指南](lit.md)）。
 
 ## 13. 查看生成代码与宏展开
 

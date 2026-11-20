@@ -559,14 +559,14 @@ $BIN/mlir-opt tests/ctlz_simple.mlir --convert-math-to-funcs=convert-ctlz \
 - lit 扫描测试文件，执行其中的每条 `// RUN:` 行，检查退出码
 - `tests/lit.cfg.py` 配置测试格式（`ShTest`）、文件后缀、工具搜索路径
 - 本项目在 Bazel 下通过 `bazel/lit.bzl` 的 `glob_lit_tests()` 生成测试目标
-- 本环境尚未安装 lit，所以课程目前手动执行 RUN 命令。安装方式：
+- lit 现已可用：LLVM 构建树自带 `llvm-lit`（`$BIN/llvm-lit`），
+  `ninja check-mlir-tutorial` 可以直接运行，详见 [lit 测试指南](lit.md)；
+  如需单独安装 lit 的 Python 依赖：
 
 ```bash
 cd /home/zhouzhou/npu/mlir-tutorial
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-# 注意：仓库自带的 lit.cfg.py 依赖 Bazel 的 RUNFILES_DIR，
-# 脱离 Bazel 直接运行可能需要调整 PATH，因此本课程以手动 RUN 为准
 ```
 
 ### 7.4 功能测试：真正执行生成的代码

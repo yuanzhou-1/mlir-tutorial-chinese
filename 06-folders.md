@@ -993,8 +993,9 @@ $TO -pass-pipeline="builtin.module(func.func(sccp))" tests/poly_fold.mlir \
   | $BIN/FileCheck tests/poly_fold.mlir --check-prefix=SCCP
 ```
 
-两条命令都没有输出，表示通过。`tests/` 下的 `.mlir` 由 lit 收集（本环境 lit
-未安装，手动执行 `RUN:` 命令即可，见第 0 课的环境说明）。
+两条命令都没有输出，表示通过。`tests/` 下的 `.mlir` 由 lit 收集
+（`ninja check-mlir-tutorial` 或 `$BIN/llvm-lit` 均可运行，
+见 [lit 测试指南](lit.md)）。
 
 ## 7. 源码位置
 

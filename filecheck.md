@@ -405,7 +405,7 @@ FileCheck %s --check-prefixes=CANON,SCCP
 
 ### 7.3 手动等价命令
 
-没有 lit 时，可以直接执行 RUN 行：
+不经过 lit，也可以直接执行 RUN 行：
 
 ```bash
 $TO tests/poly_fold.mlir --canonicalize \
