@@ -861,7 +861,7 @@ lower 成什么？为什么需要 pad？
 
 ## 14. 下一课
 
-**第 10 课：Lowering through LLVM**
+**第 10 课：Lowering through LLVM**：[10-lowering-through-llvm.md](10-lowering-through-llvm.md)
 
 - `--poly-to-llvm` pipeline
 - `mlir-translate` + `mlir-runner` 端到端执行
